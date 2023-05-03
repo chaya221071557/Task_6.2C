@@ -15,9 +15,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo"print"
-                }
-            
             }
+            
+        }
         
      }
     
