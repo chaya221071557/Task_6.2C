@@ -17,6 +17,7 @@ pipeline {
             steps {
                 
                 sh '${mvnHome}/bin/mvn package'
+                echo "Hello"
                 
             }
             
