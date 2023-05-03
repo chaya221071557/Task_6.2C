@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools
     {
-        tool name: 'maven', type: 'maven'
+       
         maven 'maven'
         
     }
@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout'){
            
             steps{
-                 git 'https://github.com/chaya221071557/Task_6.2C.git'
+                 git: 'https://github.com/chaya221071557/Task_6.2C.git'
             }
         
         }
