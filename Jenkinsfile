@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Checkout'){
            
-            git 'https://github.com/chaya221071557/Task_6.2C.git'
+            steps{
+                 git 'https://github.com/chaya221071557/Task_6.2C.git'
+            }
         
         }
         stage('Build') {
