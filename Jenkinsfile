@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "mvn clean package"
+                withMaven{
+                    sh "mvn clean package"
+                }
+                    
                 
             }
             
