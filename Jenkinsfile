@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools
     {
+        tool name: 'maven', type: 'maven'
         maven 'maven'
         
     }
