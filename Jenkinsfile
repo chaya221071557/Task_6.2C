@@ -1,15 +1,9 @@
 pipeline {
     agent any
-    environment{
-        DIRECTORY_PATH="\\Users\\Administrator\\Downloads\\SIT223_Task5.1P"
-        TESTING_ENVIRONMENT="Jenkins"
-        PRODUCTION_ENVIRONMENT="Chaya"
-    }
     stages {
         stage('Build') {
             steps {
-                echo "fetch the source code from ${DIRECTORY_PATH}"
-                echo "compile the code and generate any necessary artifacts"
+                sh 'mv clean package'
                 
             }
             
