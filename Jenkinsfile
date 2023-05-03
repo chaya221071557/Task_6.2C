@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'mv clean package'
+                sh 'mv clean package'
                 
             }
             
@@ -23,19 +23,18 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo "Deploy the coding application to ${TESTING_ENVIRONMENT}"
+               
             }
         }
         stage('Approval') {
             steps {
                 
-                sleep 10
                 
             }
         }
         stage('Deploy to production') {
             steps {
-                echo "Deployment completed by ${PRODUCTION_ENVIRONMENT} using ${TESTING_ENVIRONMENT} environment"
+                
             }
         }
     }
