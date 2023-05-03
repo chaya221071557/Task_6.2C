@@ -3,31 +3,22 @@ pipeline {
 
     tools {
         maven "maven"
-       
     }
 
     stages {
         stage('Initialize'){
             steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
+                git branch: 'main', url: 'https://github.com/chaya221071557/Task_6.2C.git'
+                sh 'maven clean package'
             }
         }
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/New_demo/my-app") {
-                sh 'mvn -B -DskipTests clean package'
+                echo"print"
                 }
             
             }
         }
      }
-    post {
-       always {
-          junit(
-        allowEmptyResults: true,
-        testResults: '*/test-reports/.xml'
-      )
-      }
-   } 
+    
 }
