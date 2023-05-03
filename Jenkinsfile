@@ -1,10 +1,13 @@
 pipeline {
     agent any
-     
+    tools{
+        maven 'maven'
+    }
     stages {
         stage('Build') {
             steps {
                 withMaven{
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/chaya221071557/Task_6.2C.git']])
                     sh "mvn clean package"
                 }
                     
