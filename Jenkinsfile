@@ -23,18 +23,19 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                echo "a"
                
             }
         }
         stage('Approval') {
             steps {
-                
+                echo "a"
                 
             }
         }
         stage('Deploy to production') {
             steps {
-                
+                echo "a"
             }
         }
     }
