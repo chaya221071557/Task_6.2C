@@ -1,5 +1,10 @@
 pipeline {
     agent any
+     environment{
+        DIRECTORY_PATH="\\Users\\Administrator\\Downloads\\SIT223_Task5.1P"
+        TESTING_ENVIRONMENT="Jenkins"
+        PRODUCTION_ENVIRONMENT="Chaya"
+    }
     stages {
         stage('Build') {
             steps {
