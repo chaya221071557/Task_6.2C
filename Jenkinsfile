@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build your code using Maven
-                bat 'D:\\Maven\\apache-maven-3.9.1\\bin\\mvn clean package'
+                sh 'D:\\Maven\\apache-maven-3.9.1\\bin\\mvn clean package'
             }
         }
         stage('Deploy') {
