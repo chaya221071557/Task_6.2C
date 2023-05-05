@@ -28,43 +28,17 @@ pipeline {
             }
             post
             {
-                success
+                failure 
                 {
-                    def email_address='chayashiv629@gmail.com'
-                    def email_subject='Sucess: Unit and Integration Tests'
-                    def email_body='Stage is working'
-                    println "Email sent to: ${email_address}"
-                    println "Email subject: ${email_subject}"
-                    println "Email body: ${email_body}"
-                    emailext(
-                        to: email_address,
-                        subject: email_subject,
-                        body: email_body,
-                        mimeType: 'text/html',
-                        attachLog: true
-                    
-                        
-                    )
-
+                    mail to: 'chayashiv629@gmail.com',
+                        subject: "Failure: Unit and Integration Tests",
+                        body: "Stage is not working. Please investigate."
                 }
-                failure
+                success 
                 {
-                    def email_address='chayashiv629@gmail.com'
-                    def email_subject='Failure: Unit and Integration Tests'
-                    def email_body='Stage is not working'
-                    println "Email sent to: ${email_address}"
-                    println "Email subject: ${email_subject}"
-                    println "Email body: ${email_body}"
-                    emailext{
-                        to: email_address,
-                        subject: email_subject,
-                        body: email_body,
-                        mimeType: 'text/html',
-                        attachLog: true
-                    
-                        
-                    }
-
+                    mail to: 'chayashiv629@gmail.com',
+                        subject: "Success: Unit and Integration Tests",
+                        body: "Stage is working. Congratulations!"
                 }
 
 
@@ -86,45 +60,22 @@ pipeline {
                 echo 'Performing security scan using SonarQube'
             }
             post
-            {
-                success
-                {
-                    def email_address='chayashiv629@gmail.com'
-                    def email_subject='Success: Security Scan'
-                    def email_body='Stage is working'
-                    println "Email sent to: ${email_address}"
-                    println "Email subject: ${email_subject}"
-                    println "Email body: ${email_body}"
-                    emailext(
-                        to: email_address,
-                        subject: email_subject,
-                        body: email_body,
-                        mimeType: 'text/html',
-                        attachLog: true
-                    
-                        
-                    )
+            {   
 
-                }
-                failure
-                {
-                    def email_address='chayashiv629@gmail.com'
-                    def email_subject='Failure: Security Scan'
-                    def email_body='Stage is not working'
-                    println "Email sent to: ${email_address}"
-                    println "Email subject: ${email_subject}"
-                    println "Email body: ${email_body}"
-                    emailext{
-                        to: email_address,
-                        subject: email_subject,
-                        body: email_body,
-                        mimeType: 'text/html',
-                        attachLog: true
-                    
-                        
-                    }
 
+                failure 
+                {
+                    mail to: 'chayashiv629@gmail.com',
+                        subject: "Failure: Security Scan",
+                        body: "Stage is not working. Please investigate."
                 }
+                success 
+                {
+                    mail to: 'chayashiv629@gmail.com',
+                        subject: "Success: Security Scan",
+                        body: "Stage is working. Congratulations!"
+                }
+                
 
 
             }
@@ -157,22 +108,12 @@ pipeline {
     {
         always             
         {
-            def email_address='chayashiv629@gmail.com'
-            def email_subject='Status: ${currentBuild.result}'
-            def email_body='Pipeline has been a ${currentBuild.result}'                
-            println "Email sent to: ${email_address}"
-            println "Email subject: ${email_subject}"
-            println "Email body: ${email_body}"
-            emailext
-            {
-                to: email_address,
-                subject: email_subject,                        
-                body: email_body,
-                mimeType: 'text/html',
-                attachLog: true
-                    
-                        
-            }
+
+            mail to: 'chayashiv629@gmail.com',
+                    subject: "Status: ${currentBuild.result}",
+                    body: "Pipeline has been a ${currentBuild.result}."
+
+            
                 
         }
     }
