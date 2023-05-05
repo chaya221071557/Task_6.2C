@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Build your code using Maven
                // sh 'D:\\Maven\\apache-maven-3.9.1\\bin\\mvn clean package'
-                  sh 'mvn -B -ntp -Dmaven.test.failure.ignore verify'
+                  sh 'mvn clean package'
             }
         }
         stage('Deploy') {
