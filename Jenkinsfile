@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
+        ant 'ant'
         jdk 'Java'
         
         
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Build your code using Maven
                // sh 'D:\\Maven\\apache-maven-3.9.1\\bin\\mvn clean package'
-                  sh 'mvn clean package'
+                  sh 'ant clean package'
             }
         }
         stage('Deploy') {
