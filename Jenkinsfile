@@ -1,37 +1,24 @@
 pipeline {
     agent any
-    environment
-    {
-        PATH="/Maven/apache-maven-3.9.1/bin:$PATH"
-       
-        
-        
-    }
+    
     stages {
-        stage('Checkout'){
-           
-            steps{
-                 git 'https://github.com/chaya221071557/Task_6.2C.git'
+        stage('Checkout') {
+            steps {
+                // Checkout code from your version control system
+                // e.g., git clone
             }
-        
         }
         stage('Build') {
             steps {
-                
-                sh "mvn clean install"
-               
-                
+                // Build your code using Maven
+                sh 'mvn clean package'
             }
-            
         }
-        
-        stage('Code Quality Check') {
+        stage('Deploy') {
             steps {
-                echo "Check the quality of the code"
+                // Deploy your packaged code to a server or other destination
+                // e.g., scp or rsync
             }
         }
-       
-        
-        
     }
 }
