@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Checkout code from your version control system
                 // e.g., git clone
-                git branch: 'main' url:'https://github.com/chaya221071557/Task_6.2C.git'
+                git branch: 'main' , url:'https://github.com/chaya221071557/Task_6.2C.git'
             }
         }
         stage('Build') {
